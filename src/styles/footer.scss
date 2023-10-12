@@ -1,0 +1,30 @@
+footer{
+    margin-top: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 3rem 2rem;
+    background-color: $black;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    font: bold 1rem "Plus Jakarta Sans";
+    color: $white;
+
+    path{
+        fill:rgb(255,226,154);
+    }
+
+    .reference-link{
+        text-decoration: underline;
+        color:rgb(185, 185, 185);
+    }
+
+    .footer-column{
+        display: flex;
+        flex-direction: column;
+
+        &:last-child{
+            align-items: center;
+        }
+    }
+    
+}

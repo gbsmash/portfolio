@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@500&family=Plus+Jakarta+Sans&family=REM:wght@300;400&display=swap');
+
+$black: #291F1F;
+$white: #FAFAFA;
+$gradient_yellow: rgba(255,226,154,1);
+$gradient_orange: rgba(255,168,137,1);
+
+
+@import '../styles/home_section_slider.scss';
+@import '../styles/home_section_projects.scss';
+@import '../styles/navbar.scss';
+@import '../styles/footer.scss';
+@import '../styles/about_section_skills.scss';
+@import '../styles/about_section_edu_ach.scss';
+@import '../styles/portfolio.scss';
+
+
+#root{
+    width:100%;
+}
+
+.app{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

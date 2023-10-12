@@ -1,0 +1,229 @@
+@mixin black_button($padding_top, $padding_right){
+    padding: $padding_top $padding_right;
+    color: $white;
+    border-radius: 1rem;
+    background-color: $black;
+    border: 2px solid transparent;
+    width:fit-content;
+    transition: all 0.5s ease-in-out;
+    font : normal 1rem "REM"; 
+
+    &:hover{
+        background-color: transparent;
+        color: $black;
+        border: 2px solid $black;
+        transition: all 0.5s ease-in-out;
+    }
+}
+
+@keyframes slide-to-right {
+    from{
+        transform: translateX(-10rem);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0rem);
+        opacity: 1;
+    }
+}
+
+
+@keyframes slide-to-left {
+    from{
+        transform: translateX(10rem);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0rem);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-to-bottom {
+    from{
+        transform: translateY(-10rem);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+}
+
+@keyframes appear {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+html{
+    background-color: $white;
+}
+
+.home-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    section{
+        width: 100%;
+    }
+}
+
+.home--section-wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 1.5rem;
+    padding-bottom: 7rem;
+    min-height: 29rem;
+    gap:2.5rem;
+    border-bottom: 2px solid rgba(94, 94, 94, 0.3);
+
+    &.about{
+        background-color: rgb(255,226,154);
+        background: linear-gradient(72deg, rgba(255,226,154,1) 28%, rgba(255,168,137,1) 79%);
+    }
+
+    .home--slider-button{
+        background-color: transparent;
+        border:none;
+        opacity:0.3;
+
+        path{
+            fill:rgba(0, 0, 0, 0.363);   
+        }
+    }
+
+    &> div:first-of-type{
+        flex:1; 
+    }
+}
+
+
+.home--slider-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7rem;
+    animation : slide-to-right 1.2s ease-in-out;
+    
+
+    .main-frame{
+        width: 15rem;
+        height: 15rem;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: rgb(255,226,154);
+        background: linear-gradient(72deg, rgba(255,226,154,1) 28%, rgba(255,168,137,1) 79%);
+    }
+
+    .main-info{
+        
+        &>*{
+            margin: 0;
+        }
+        h1{
+            font : bold 5rem "REM";
+        }
+        h3{
+            font : normal 2rem "Plus Jakarta Sans";
+        }
+    }
+}
+
+
+
+.home--slider-about{
+
+    display: flex;
+    padding-top:2rem;
+    gap: 3rem;
+    
+    .about-container{
+        flex:1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 2rem 2rem;
+        border-radius: 1.5rem;
+        background-color: #fafafa;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;  
+        
+        &.education {
+            animation : slide-to-bottom 1s ease-in-out;
+        }
+        &.achievements {
+            animation : slide-to-bottom 1.6s ease-in-out;
+        }
+        &.skills {
+            animation : slide-to-bottom 2.2s ease-in-out;
+        }
+
+        img{
+            height: 134px;
+        }
+
+        a{
+            @include black_button(0.8rem, 1.5rem);
+        }
+
+        p{
+            font : normal 1.2rem "Plus Jakarta Sans";
+            text-align: center;
+        }
+    }
+}
+
+
+.home--slider-contact{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    h1{
+        font : bold 5rem "REM";
+        animation : slide-to-right 1.2s ease-in-out;
+    }
+
+    .contact-links{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        p{
+            display: flex;
+            align-items: flex-end;
+            animation : slide-to-bottom 1.5s ease-in-out;
+
+            svg{
+                margin-right: 1.3rem;
+                cursor: pointer;
+            }
+
+            span{
+                transition: all 1s ease-in-out;
+                font : bold 1.5rem "Karla";
+                padding: 0.5rem 1rem;
+                border-radius: 1.5rem;
+                border-top: 1px solid transparent;
+            }        
+            
+            svg:hover + span{
+                transition: all 1s ease-in-out;
+                box-shadow: rgba(255,168,137, 0.7) 5px 5px, rgba(255, 168, 137, 0.5) 10px 10px, rgba(255, 226, 154, 0.822) 15px 15px;
+                border-top-right-radius: 1.5rem;
+                border-bottom-right-radius: 1.5rem;
+                border-top: 1px solid rgb(255,168,137);
+            }
+        }  
+
+        .p-linkedin{
+            margin-bottom: 1.5rem;
+        }   
+    }
+}

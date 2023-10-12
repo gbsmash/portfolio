@@ -1,0 +1,98 @@
+.about--section-education{
+
+    animation : slide-to-right 1.2s ease-in-out;
+    border-bottom: 2px solid rgba(94, 94, 94, 0.3);
+
+    h1{
+        margin-bottom: 3rem;
+    }
+    
+    .education-content-wrapper{
+
+        display: flex;
+        gap: 4rem;
+
+        .overlap-image-wrapper{
+            flex: 50%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+
+            .img-large{
+                grid-column: 1/4;
+                grid-row: 1/5;
+            }
+            .img-small{
+                grid-column: 3/5;
+                grid-row: 2/4;
+            }
+        }
+
+        ul{
+            flex: 50%;
+        }
+
+        p{
+            font: normal 1.2rem "REM";
+            font-weight: 300;
+            vertical-align: middle;
+        }
+
+        span{
+            font: bold 2rem "REM";
+        }
+
+        img{
+            width: 100%;
+            border-radius: 10px;
+            border: 6px solid white;
+            box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+        }
+    }
+}
+
+
+.about--section-achievements{
+
+    animation : slide-to-left 1.2s ease-in-out;
+
+    h1{
+        text-align: center;
+    }
+
+    .achievements-content-wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.5rem;
+
+
+        .achievements-info-wrapper{
+            flex-grow:50%;
+        }
+
+        img{
+            max-width: 50%;
+            min-width: 250px;
+            height: auto;
+        }
+
+
+        p{
+            display: flex;
+            align-items: center;
+            font: 1.2rem "REM";
+            
+            svg{
+                flex-shrink:0;
+                flex-grow:0;
+                margin-right: 1.2rem;
+
+                path{
+                    fill: $black;
+                }
+            }
+        }
+    }
+
+}
