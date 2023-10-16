@@ -1,22 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import SunIcon from '../../assets/icons/SunIcon'
+import links from "../../assets/side_links"
 
 function Footer() {
+
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(links.email);
+    setCopied(true);
+    setTimeout(()=>{
+      setCopied(false);
+    },2500);
+  }
 
   return (
     <footer>
         <div className="footer-column">
             <h3>Navigation</h3>
-            <p>Education</p>
-            <p>Projects</p>
-            <p>Skills</p>
+            <Link to="about">Education</Link>
+            <Link to="about">Projects</Link>
+            <Link to="about">Skills</Link>
         </div>
         <div className="footer-column">
             <h3>Contacts</h3>
-            <p>Github</p>
-            <p>Linked In</p>
-            <p>E-mail</p>
+            <Link to={links.github}>Github</Link>
+            <Link to={links.linkedin}>LinkedIn</Link>
+            <button onClick={copyToClipboard} className={copied ? "copied" : ""}>E-mail</button>
         </div>
         <div className="footer-column">
           <SunIcon />

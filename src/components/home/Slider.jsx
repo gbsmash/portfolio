@@ -8,6 +8,7 @@ import MailIcon from "../../assets/icons/MailIcon"
 import EduImg from "../../assets/images/education.png"
 import SkillImg from "../../assets/images/skill.png"
 import AchievementImg from "../../assets/images/achievement.png"
+import links from '../../assets/side_links'
 
 
 
@@ -89,9 +90,9 @@ const Contact = () => {
   return <div className='home--slider-contact'>
       <h1>Contact</h1>
       <div className="contact-links">
-        <p className='p-github'><GithubIcon /> <span className='p-name'>Github</span></p>
-        <p className='p-linkedin'><LinkedinIcon /> <span className='p-name'>LinkedIn</span></p>
-        <p className='p-mail'><MailIcon /> <span className='p-name'>E-mail</span></p>
+        <p className='p-github'><GithubIcon /> <Link to={links.github}>Github</Link></p>
+        <p className='p-linkedin'><LinkedinIcon /> <Link to={links.linkedin}>LinkedIn</Link></p>
+        <p className='p-mail'><MailIcon /> <button onClick={() =>  navigator.clipboard.writeText(links.email)}>E-mail</button></p>
       </div>
     </div>
 }

@@ -205,7 +205,12 @@ html{
                 cursor: pointer;
             }
 
-            span{
+            button{
+                border:none;
+                background-color: transparent;
+            }
+
+            a, button{
                 transition: all 1s ease-in-out;
                 font : bold 1.5rem "Karla";
                 padding: 0.5rem 1rem;
@@ -213,7 +218,7 @@ html{
                 border-top: 1px solid transparent;
             }        
             
-            svg:hover + span{
+            svg:hover + a, a:hover, svg:hover + button, button:hover{
                 transition: all 1s ease-in-out;
                 box-shadow: rgba(255,168,137, 0.7) 5px 5px, rgba(255, 168, 137, 0.5) 10px 10px, rgba(255, 226, 154, 0.822) 15px 15px;
                 border-top-right-radius: 1.5rem;
