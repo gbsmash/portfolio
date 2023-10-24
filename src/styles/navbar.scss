@@ -8,6 +8,11 @@ nav{
     box-shadow: rgba(0, 0, 0, 0.45) 0px 10px 20px -20px;
     animation: slide-to-bottom 1s ease-in-out;
 
+    @include mquery_min(2200px){
+        padding : 1.5rem 2.5rem;
+    }
+
+
     .nav--brand{
         display:flex;
         justify-content: flex-start;
@@ -17,13 +22,60 @@ nav{
             fill:rgb(255,226,154);
         }
     }
+    button{
+        border: none;
+        background-color: transparent;
+        display:none;
+
+        svg{
+            width: 2rem;
+            height: 2rem;
+            fill: $black;
+        }
+    }
     .nav--links{
         display: flex;
         justify-content: space-evenly;
-        gap:1rem;
+        gap: 1rem;
         flex: 1;
-        font : bold 1rem "REM";
+        font : 400 2rem "REM";
+
+
+        &.menu{
+            @include mquery_max(425px){
+                transition: all 1s ease-in-out;
+                top:83px;
+                opacity: 1;
+            }
+        }
+
+        @include mquery_max(2200px){ font-size:1.5rem; }
+        @include mquery_max(1700px){ font-size:1.2rem; }
+        @include mquery_max(1440px){ font-size:1rem; }
+        @include mquery_max(768px){ flex:1; }
+
+        @include mquery_max(425px){
+            transition: all 2s ease-in-out;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100vw;
+            padding: 1.5rem 0;
+            gap: 2rem;
+            top: -100%;
+            opacity: 0;
+            left: 0;
+            z-index: 2;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.45) 0px 10px 20px -20px;
+        }
     }
+
+    button{
+        @include mquery_max(425px){ display: block; }
+    }
+    
     a{
         position: relative;
         transition: color 0.5s ease-in-out;
@@ -53,4 +105,6 @@ nav{
         }
     }
 }
+
+
 

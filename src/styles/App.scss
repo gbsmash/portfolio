@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@500&family=Plus+Jakarta+Sans&family=REM:wght@300;400&display=swap');
-
 $black: #291F1F;
 $white: #FAFAFA;
 $gradient_yellow: rgba(255,226,154,1);
 $gradient_orange: rgba(255,168,137,1);
 
 
+@import '../styles/media.scss';
 @import '../styles/home_section_slider.scss';
 @import '../styles/home_section_projects.scss';
 @import '../styles/navbar.scss';
@@ -13,6 +12,23 @@ $gradient_orange: rgba(255,168,137,1);
 @import '../styles/about_section_skills.scss';
 @import '../styles/about_section_edu_ach.scss';
 @import '../styles/portfolio.scss';
+
+
+@font-face {
+    font-family: 'Karla';
+    src: url("../assets/fonts/Karla-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: 'REM';
+    src: url("../assets/fonts/REM-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url("../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf");
+}
+
 
 
 #root{

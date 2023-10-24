@@ -9,7 +9,6 @@
     }
 }
 
-
 .projects-section-wrapper{
     display: flex;
     flex-direction: column;
@@ -17,18 +16,30 @@
     gap:2rem;
     padding: 3rem 1.5rem;
 
+    @include mquery_min(1440px){ padding: 3rem 5rem; }
+    @include mquery_max(425px){ padding: 3rem 0rem; }
+
     h1{
-        font: bold 2.5rem "Plus Jakarta Sans";
+        font: 500 3.5rem "Plus Jakarta Sans";
+
+        @include mquery_max(2200px){ font-size:3.5rem; }
+        @include mquery_max(1700px){ font-size:3rem; }
+        @include mquery_max(1440px){ font-size:2.5rem; }
+        @include mquery_max(1024px){ font-size:2.2rem; }
+        @include mquery_max(768px){ font-size:2rem; }
     }
     
     .projects-wrapper{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
         justify-items: center;
         align-items: center;
-        gap: 2rem;
+        grid-gap: 2rem;
         width: 100%;
-
+        
+        @include mquery_max(375px){
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
 
         .home--project-container{
             display: flex;
@@ -38,22 +49,30 @@
             background-color: white;
             padding: 2rem 3rem;
             gap:1rem;
-            max-width: 18rem;
+            max-width: 16rem;
             border-radius: 15px;
             box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-            font: bold 1rem "REM";
+            font: 400 1.2rem "REM";
+            text-align: center;
 
             img{
-                height: 15rem;
+                height: 13rem;
                 width: auto;
                 border-radius: 15px;
                 box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+                
+                @include mquery_max(425px){
+                    width:12rem;
+                    height:auto;
+                }
             }
 
             a{
                 @include black_button(0.3rem, 1rem);
                 display: flex;
                 align-items: center;
+                text-align: center;
 
                 svg{
                     width: 40px;
@@ -71,7 +90,20 @@
                         transition : fill 1s ease-in-out;
                     }
                 }
+
+                @include mquery_max(425px){
+                    font-size:0.8rem;   
+                }
             }
+
+            @include mquery_max(425px){
+                padding: 2rem;
+                font-size:1rem;
+            }
+            @include mquery_max(375px){
+                padding: 2rem 1rem;
+            }
+
         }
     }
 

@@ -3,43 +3,85 @@
     animation : slide-to-right 1.2s ease-in-out;
     border-bottom: 2px solid rgba(94, 94, 94, 0.3);
 
-    h1{
-        margin-bottom: 3rem;
-    }
     
     .education-content-wrapper{
 
         display: flex;
         gap: 4rem;
 
+        @include mquery_max(790px){ 
+            flex-direction: column;
+            gap: 2rem;
+        }
+
         .overlap-image-wrapper{
             flex: 50%;
             display: grid;
+            justify-items: center;
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(4, 1fr);
+
+            @include mquery_max(790px){ 
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(3, 1fr);    
+            }
+
+            @include mquery_max(375px){ 
+                display: flex;
+                flex-direction: column;  
+                gap:2rem;
+                align-items: center;
+            }
 
             .img-large{
                 grid-column: 1/4;
                 grid-row: 1/5;
+                min-width: 12rem;
+
+                @include mquery_max(790px){ 
+                    max-width: 28rem; 
+                    grid-column: 1/4;
+                    grid-row: 1/4;
+                }
             }
             .img-small{
                 grid-column: 3/5;
                 grid-row: 2/4;
+                min-width: 8rem;
+
+                @include mquery_max(790px){ 
+                    max-width: 17rem;
+                    grid-column: 3/5;
+                    grid-row: 2/4;
+                }
             }
         }
 
         ul{
+            display: flex;
+            flex-direction: column;
             flex: 50%;
+            margin:0;
         }
 
         p{
-            font: normal 1.2rem "REM";
+            font: 400 2.5rem "REM";
             font-weight: 300;
             vertical-align: middle;
+
+            @include mquery_max(2200px){ font-size:2rem; }
+            @include mquery_max(1700px){ font-size:1.5rem; }
+            @include mquery_max(1440px){ font-size:1.2rem; }
+            @include mquery_max(1024px){ font-size:1rem; }
         }
 
         span{
-            font: bold 2rem "REM";
+            font: 500 3rem "REM";
+
+            @include mquery_max(2200px){ font-size:2.5rem; }
+            @include mquery_max(1700px){ font-size:2rem; }
+            @include mquery_max(1440px){ font-size:1.7rem; }
+            @include mquery_max(1024px){ font-size:1.5rem; }
         }
 
         img{
@@ -62,10 +104,11 @@
 
     .achievements-content-wrapper{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
         gap: 1.5rem;
 
+        @include mquery_max(600px){ flex-direction: column-reverse; }
 
         .achievements-info-wrapper{
             flex-grow:50%;
@@ -75,13 +118,20 @@
             max-width: 50%;
             min-width: 250px;
             height: auto;
+
+            @include mquery_max(600px){ margin-left: 5rem; }
         }
 
 
         p{
             display: flex;
             align-items: center;
-            font: 1.2rem "REM";
+            font: 400 2rem "REM";
+
+            @include mquery_max(2200px){ font-size:1.8rem; }
+            @include mquery_max(1700px){ font-size:1.5rem; }
+            @include mquery_max(1440px){ font-size:1.2rem; }
+            @include mquery_max(1024px){ font-size:1rem; }
             
             svg{
                 flex-shrink:0;

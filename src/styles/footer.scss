@@ -6,8 +6,15 @@ footer{
     margin-top: auto;
     background-color: $black;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
-    font: bold 1rem "Plus Jakarta Sans";
+    font: 400 2rem "Plus Jakarta Sans";
     color: $white;
+
+
+    @include mquery_max(768px){
+        flex-direction: column;
+        gap: 2rem;
+    }
+
 
     path{
         fill:rgb(255,226,154);
@@ -26,17 +33,27 @@ footer{
         &:last-child{
             align-items: center;
         }
+
+
+        @include mquery_max(768px){
+            justify-content: center;
+            align-items: center;
+        }
     }
 
 
     button{
+        display: flex;
+        align-items: center;
         background-color: transparent;
         border:none;
         text-align: start;
-        font: bold 1rem "Plus Jakarta Sans";
+        font: 400 2rem "Plus Jakarta Sans";
         color: $white;
         margin:0;
         padding: 0;
+        position: relative;
+
 
         &::after{
             transition: all 1s ease-in-out;
@@ -47,13 +64,22 @@ footer{
             color: $black;
             border-radius: 10px;
             padding: 0.5rem 0.9rem;
-            margin-left: 1.5rem;
-            opacity: 1;
+            left: 5rem;
+            cursor:auto;
+            opacity: 0;
+
+            @include mquery_max(375px){ left:4rem; }
         }
+
         &.copied::after{
             transition: all 1s ease-in-out;
             opacity: 1;
         }
     }
-    
+}
+
+footer, .footer-column > button{
+    @include mquery_max(2200px){ font-size:1.5rem; }
+    @include mquery_max(1700px){ font-size:1.2rem; }
+    @include mquery_max(1440px){ font-size:1rem; }
 }

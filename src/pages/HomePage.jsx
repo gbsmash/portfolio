@@ -29,7 +29,7 @@ function HomePage() {
           </div>
 
           <div className="projects-section-button-wrapper">
-            <Link onMouseOver={()=>{setAnimatedArrows(true)}}  onAnimationEnd={()=>{setAnimatedArrows(false)}}>
+            <Link to={"/portfolio"} onMouseOver={()=>{setAnimatedArrows(true)}}  onAnimationEnd={()=>{setAnimatedArrows(false)}}>
               <Arrows arrowNum="arrow-1" animate={animatedArrows}/>
               <Arrows arrowNum="arrow-2" animate={animatedArrows}/>
               <Arrows arrowNum="arrow-3" animate={animatedArrows}/>

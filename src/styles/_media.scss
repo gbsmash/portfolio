@@ -1,0 +1,11 @@
+@mixin mquery_max($breakpoint){
+    @media only screen and (max-width: $breakpoint){
+        @content;
+    }
+}
+
+@mixin mquery_min($breakpoint){
+    @media only screen and (min-width: $breakpoint){
+        @content;
+    }
+}

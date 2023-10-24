@@ -5,64 +5,112 @@
     padding: 3rem;
 
     h1{
-        font: bold 2.5rem "Plus Jakarta Sans";
+        margin-bottom: 2rem;
+        text-align: center;
+
+        font: 500 3.5rem "Plus Jakarta Sans";
+
+        @include mquery_max(2200px){ font-size:3.5rem; }
+        @include mquery_max(1700px){ font-size:3rem; }
+        @include mquery_max(1440px){ font-size:2.5rem;}
+        @include mquery_max(1200px){ font-size:2.2rem; }
+        @include mquery_max(768px){ font-size:2rem; }
     }
 
     .portfolio--project-container{
-
         display: flex;
-        padding: 2rem 1rem;
+        justify-content: center;
+        align-items: center;
+        padding: 4rem 1rem;
         gap: 3rem;
         border-left: 0;
         border-top:0;
         border-right: 0;
-        border-bottom: 2px;
-        border-style: solid;
-    /* 	border-image: linear-gradient(to bottom, #ccc, #555 66%, #181818) 1 100%; */
-        border-image: linear-gradient(to right, #181818, #eee, #181818) 1 100%;
+        border-bottom: 2px solid;
+        border-image: linear-gradient(to right, transparent, #181818, transparent) 100%;
+        border-image-slice: 1;
+        animation : slide-to-right 1.2s ease-in-out;
+
+        @include mquery_min(1700px){ gap: 12rem; }
+        @include mquery_max(768px){ flex-direction: column; }
+
+        .portfolio--project-row-wrapper{
+            display: flex;
+            justify-content: center;
+            margin-top: auto;
+
+            @include mquery_min(2200px){ margin-top: 3rem; }
+        }
+
+        &.last{
+            border:none;
+        }
+    
 
         &.flow-0{
             flex-direction: row-reverse;
+            animation : slide-to-left 1.2s ease-in-out;
+
+            @include mquery_max(768px){ flex-direction: column; }
         }
 
         img{
-            width: 25rem;
+            max-width: 25rem;
+            min-width: 15rem;
             height: auto;
             border-radius: 15px;
             box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+            @include mquery_min(2200px){ width:40rem; }
+            @include mquery_max(1024px){ width:20rem; }
+            @include mquery_max(768px){ width: 17rem; }
         }   
 
         .portfolio--project-container-content{
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            flex:1;
+            align-items:center;
+            gap:1rem;
+
+            @include mquery_min(2200px){ justify-content: center; }
 
             h3{
-                font: bold 2rem "REM";
+                font: 400 3rem "REM";
                 margin:0;
+
+                @include mquery_max(2200px){ font-size:2.8rem; }
+                @include mquery_max(1700px){ font-size:2.5rem; }
+                @include mquery_max(1440px){ font-size:2rem; }
+                @include mquery_max(1200px){ font-size:1.8rem; }
+                @include mquery_max(768px){ font-size:1.5rem; }
             }
     
             p{
-                font:1.5rem "REM";
+                font: 400 2.5rem "REM";
                 font-weight: 300;
+
+                @include mquery_max(2200px){ font-size:2.2rem; }
+                @include mquery_max(1700px){ font-size:2rem; }
+                @include mquery_max(1440px){ font-size:1.5rem; }
+                @include mquery_max(1200px){ font-size:1.2rem; }
+                @include mquery_max(768px){ font-size:1rem; }
             }
     
             .project-tags-wrapper{
                 display: grid;
-                grid-template-columns: repeat(4, minmax(3rem, 9rem));
-                justify-items: center;
-
-                row-gap:2rem;
-
+                grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+                align-items: center;
+                width: 100%;
+                
                 span{
-                    font: bold 1rem "REM";
-                }
-            }
+                    font: 500 1.8rem "REM";
+                    text-align: center;
 
-            .portfolio--project-row-wrapper{
-                display: flex;
-                justify-content: flex-end;
+                    @include mquery_max(2200px){ font-size:1.5rem; }
+                    @include mquery_max(1700px){ font-size:1.2rem; }
+                    @include mquery_max(1440px){ font-size:1rem; }
+                    @include mquery_max(1200px){ font-size:0.8rem; }
+                }
             }
 
             a{
@@ -70,7 +118,8 @@
                 display: flex;
                 align-items: center;
                 margin-top:2rem;
-                
+
+                @include mquery_max(768px){ font-size:0.8rem; }
 
                 svg{
                     width: 40px;

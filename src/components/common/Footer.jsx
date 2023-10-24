@@ -7,8 +7,8 @@ function Footer() {
 
   const [copied, setCopied] = useState(false);
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(links.email);
+  const copyToClipboard = (textToCopy) => {
+    navigator.clipboard.writeText(textToCopy);
     setCopied(true);
     setTimeout(()=>{
       setCopied(false);
@@ -27,7 +27,7 @@ function Footer() {
             <h3>Contacts</h3>
             <Link to={links.github}>Github</Link>
             <Link to={links.linkedin}>LinkedIn</Link>
-            <button onClick={copyToClipboard} className={copied ? "copied" : ""}>E-mail</button>
+            <button onClick={()=>{copyToClipboard(links.email)}} className={copied ? "copied" : ""}>E-mail</button>
         </div>
         <div className="footer-column">
           <SunIcon />

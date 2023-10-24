@@ -1,6 +1,6 @@
 const links = {
     github:"https://github.com/gbsmash",
-    linkedin:"www.linkedin.com/in/shams-gadirli",
+    linkedin:"https://www.linkedin.com/in/shams-gadirli/",
     email: "shams.kadirli@gmail.com"
 }
 

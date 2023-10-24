@@ -5,8 +5,12 @@
     background-color: $black;
     border: 2px solid transparent;
     width:fit-content;
+    text-align: center;
     transition: all 0.5s ease-in-out;
-    font : normal 1rem "REM"; 
+    font : normal 1.5rem "REM"; 
+
+    @include mquery_max(1700px){ font-size:1.2rem; }
+    @include mquery_max(1440px){ font-size:1rem; }
 
     &:hover{
         background-color: transparent;
@@ -82,6 +86,11 @@ html{
     gap:2.5rem;
     border-bottom: 2px solid rgba(94, 94, 94, 0.3);
 
+    @include mquery_max(550px){ 
+        gap: 0rem; 
+        padding: 3rem 0rem;
+    }
+
     &.about{
         background-color: rgb(255,226,154);
         background: linear-gradient(72deg, rgba(255,226,154,1) 28%, rgba(255,168,137,1) 79%);
@@ -92,44 +101,78 @@ html{
         border:none;
         opacity:0.3;
 
+        &:nth-child(1){margin-right: 0.5rem;}
+        &:nth-child(3){margin-left: 0.5rem;}
+
+        svg{
+            @include mquery_max(550px){ width:20px; }
+        }
+
         path{
             fill:rgba(0, 0, 0, 0.363);   
         }
     }
 
-    &> div:first-of-type{
-        flex:1; 
-    }
 }
 
 
 .home--slider-main{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 7rem;
+    gap: 3rem;
+    width: 100%;
     animation : slide-to-right 1.2s ease-in-out;
-    
+
+    @include mquery_max(590px){        
+        flex-direction: column;
+        gap:0rem;
+    }
 
     .main-frame{
-        width: 15rem;
-        height: 15rem;
+        max-width: 20rem;
+        width:100%;
+        aspect-ratio: 1/1;
         flex-shrink: 0;
         border-radius: 50%;
         background: rgb(255,226,154);
         background: linear-gradient(72deg, rgba(255,226,154,1) 28%, rgba(255,168,137,1) 79%);
+
+        @include mquery_max(1440px){
+            max-width: 15rem;
+        }
+        @include mquery_max(1200px){
+            max-width: 12rem;
+        }
+        @include mquery_max(768px){
+            max-width: 9rem;
+        }
+        @include mquery_max(590px){
+            max-width: 12rem;
+        }
     }
 
     .main-info{
         
         &>*{
             margin: 0;
+            text-align: center;
         }
         h1{
-            font : bold 5rem "REM";
+            font : 500 6rem "REM";
+
+            @include mquery_max(1700px){ font-size: 5rem; }
+            @include mquery_max(1200px){ font-size: 4rem; }
+            @include mquery_max(1024px){ font-size: 3.5rem; }
+            @include mquery_max(756px){ font-size: 3rem; }
+            @include mquery_max(590px){ font-size: 2.5rem; }
         }
         h3{
-            font : normal 2rem "Plus Jakarta Sans";
+            font : 400 3rem "Plus Jakarta Sans";
+
+            @include mquery_max(1700px){ font-size: 2rem; }
+            @include mquery_max(1024px){ font-size: 1.5rem; }
+            @include mquery_max(756px){ font-size: 1.2rem; }
         }
     }
 }
@@ -138,9 +181,18 @@ html{
 
 .home--slider-about{
 
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(10rem, 1fr));
     padding-top:2rem;
-    gap: 3rem;
+    grid-gap: 3rem;
+
+    @include mquery_max(1200px){ gap: 1.5rem; }
+
+    @include mquery_max(920px){ 
+        grid-template-columns: 1fr;
+        grid-gap:2rem;
+    }
+
     
     .about-container{
         flex:1;
@@ -149,22 +201,33 @@ html{
         align-items: center;
         justify-content: space-evenly;
         padding: 2rem 2rem;
+        gap:1rem;
         border-radius: 1.5rem;
         background-color: #fafafa;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;  
-        
+
+        @include mquery_max(1200px){ padding: 1rem; }
+        @include mquery_max(920px){ padding: 2rem; }
+        @include mquery_max(550px){ padding: 2rem 0.5rem; }
+
         &.education {
             animation : slide-to-bottom 1s ease-in-out;
+            @include mquery_max(920px){ animation : slide-to-right 1s ease-in-out; }
         }
         &.achievements {
             animation : slide-to-bottom 1.6s ease-in-out;
+            @include mquery_max(920px){ animation : slide-to-left  1s ease-in-out; }
         }
         &.skills {
             animation : slide-to-bottom 2.2s ease-in-out;
+            @include mquery_max(920px){ animation : slide-to-right 1s ease-in-out; }
         }
 
         img{
-            height: 134px;
+            height: 8.375rem;
+            width:auto;
+
+            @include mquery_max(1200px){ height: 7rem; }
         }
 
         a{
@@ -172,8 +235,14 @@ html{
         }
 
         p{
-            font : normal 1.2rem "Plus Jakarta Sans";
+            font : 400 1.2rem "Plus Jakarta Sans";
             text-align: center;
+        }
+
+        a,p{
+            @include mquery_min(1440px){font-size:1.5rem; }
+            @include mquery_max(1200px){ font-size:1rem; }
+            @include mquery_max(550px){ font-size: 0.8rem; }
         }
     }
 }
@@ -183,10 +252,31 @@ html{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    width: 100%;
+
+    @include mquery_max(1024px){ 
+        justify-content: center;
+        gap: 4rem;
+    }
+
+    @include mquery_max(768px){ 
+        flex-direction: column;
+        align-items: center;
+        gap:1rem;
+    }
 
     h1{
-        font : bold 5rem "REM";
+        font : 500 5rem "REM";
         animation : slide-to-right 1.2s ease-in-out;
+
+        @include mquery_max(1200px){ font-size: 4rem; }
+        @include mquery_max(1024px){ font-size: 3.5rem; }
+        @include mquery_max(768px){ 
+            font-size: 3rem;
+            animation : slide-to-right 1.2s ease-in-out;
+        }
+        @include mquery_max(590px){ font-size: 2.5rem; }
+        @include mquery_max(375px){ font-size: 2rem; }
     }
 
     .contact-links{
@@ -198,24 +288,66 @@ html{
         p{
             display: flex;
             align-items: flex-end;
-            animation : slide-to-bottom 1.5s ease-in-out;
+            animation : slide-to-bottom 1.2s ease-in-out;
+
+            @include mquery_max(768px){ 
+                animation : slide-to-left 1.2s ease-in-out;
+                justify-content: center;
+            }
 
             svg{
                 margin-right: 1.3rem;
                 cursor: pointer;
+
+                @include mquery_max(1024px){ 
+                    width:40px;
+                    margin-right: 1rem;
+                }
+                @include mquery_max(375px){ 
+                    width:30px;
+                }
             }
 
             button{
                 border:none;
                 background-color: transparent;
+                display: flex;
+                align-items: center;
+                margin:0;
+                padding: 0;
+                position: relative;
+
+                &::after{
+                    transition: all 1s ease-in-out;
+                    content:"Copied";
+                    position: absolute;
+                    font-size:0.9rem;
+                    background-color: $black;
+                    color: $white;
+                    border-radius: 10px;
+                    padding: 0.8rem 1rem;
+                    left: 8rem;
+                    cursor:auto;
+                    opacity: 0;
+
+                    @include mquery_max(375px){ left:6rem; }
+                }
+        
+                &.copied::after{
+                    transition: all 1s ease-in-out;
+                    opacity: 1;
+                }
             }
 
             a, button{
                 transition: all 1s ease-in-out;
-                font : bold 1.5rem "Karla";
+                font : 500 1.5rem "Karla";
                 padding: 0.5rem 1rem;
                 border-radius: 1.5rem;
                 border-top: 1px solid transparent;
+
+                @include mquery_max(1024px){ font-size: 1.3rem; }
+                @include mquery_max(375px){ font-size: 1rem; }
             }        
             
             svg:hover + a, a:hover, svg:hover + button, button:hover{
@@ -232,3 +364,4 @@ html{
         }   
     }
 }
+

@@ -8,7 +8,7 @@ const projects = [
       img: Mind,
       description: "Web version of the board card game - 'The Mind'",
       tags: ["React JS","Authentication","Sass","Protected Routes", "Axios","socket.io","js-cookie"],
-      link: ""
+      link: "https://github.com/The-MindGame/mind-game"
     },
     {
       id: 2,
@@ -16,8 +16,8 @@ const projects = [
       img: Ttender,
       description: "Web application aimed to simplify tender operations",
       tags: ["React JS","Styled Components","Material UI","Axios","Authentication"],
-      link: ""
-    },
+      link: "https://github.com/gbsmash/ttender"
+    }
 ]
 
 export default projects;

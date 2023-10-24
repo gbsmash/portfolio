@@ -30,7 +30,6 @@ function Slider() {
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
-
   
   const toNextSlide = () => {
     setCurrentSlide((prevSlide) => {
@@ -60,7 +59,7 @@ const Main = () => {
       <div className="main-frame"></div>
       <div className="main-info">
         <h1>Hi, I am Shams</h1>
-        <h3>Front-end Developer</h3>
+        <h3> Software Developer</h3>
       </div>
     </div>
 }
@@ -86,13 +85,25 @@ const About = () => {
   </div>
 }
 
+
 const Contact = () => {
+
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = (textToCopy) => {
+    navigator.clipboard.writeText(textToCopy);
+    setCopied(true);
+    setTimeout(()=>{
+      setCopied(false);
+    },2500);
+  }
+
   return <div className='home--slider-contact'>
       <h1>Contact</h1>
       <div className="contact-links">
         <p className='p-github'><GithubIcon /> <Link to={links.github}>Github</Link></p>
         <p className='p-linkedin'><LinkedinIcon /> <Link to={links.linkedin}>LinkedIn</Link></p>
-        <p className='p-mail'><MailIcon /> <button onClick={() =>  navigator.clipboard.writeText(links.email)}>E-mail</button></p>
+        <p className='p-mail'><MailIcon /> <button onClick={()=>{copyToClipboard(links.email)}} className={copied ? "copied" : ""}>E-mail</button></p>
       </div>
     </div>
 }

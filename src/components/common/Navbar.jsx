@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import SunIcon from "../../assets/icons/SunIcon";
 import { NavLink } from "react-router-dom";
+import MenuIcon from "../../assets/icons/MenuIcon";
+import XIcon from "../../assets/icons/XIcon";
 
 function Navbar() {
   const navbarElements = [
@@ -18,20 +20,23 @@ function Navbar() {
       id: 3,
       name: "Portfolio",
       link: "/portfolio",
-    },
-    {
-      id: 4,
-      name: "Contact",
-      link: "contact",
-    },
+    }
   ];
+
+  const [menuVisible, setMenuVisible] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuVisible((prevState) => { return (!prevState)});
+    console.log(menuVisible);
+  }
 
   return (
     <nav>
       <div className="nav--brand">
         <SunIcon />
       </div>
-      <div className="nav--links">
+      <button onClick={toggleMenu}>{menuVisible ? <XIcon /> : <MenuIcon/>}</button>
+      <div className={`nav--links ${menuVisible ? "menu" : ""}`}>
         {navbarElements.map(({ name, link, id }) => {
           return (
             <NavLink to={link} key={id}>
