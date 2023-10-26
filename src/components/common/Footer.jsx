@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import SunIcon from '../../assets/icons/SunIcon'
 import links from "../../assets/side_links"
 
 function Footer() {
 
   const [copied, setCopied] = useState(false);
+  const {pathname} = useLocation();
 
   const copyToClipboard = (textToCopy) => {
     navigator.clipboard.writeText(textToCopy);
@@ -15,13 +16,17 @@ function Footer() {
     },2500);
   }
 
+  const linkToAbout = () => {
+    if(pathname === "/about") window.scrollTo(0, 0);
+  }
+
   return (
     <footer>
         <div className="footer-column">
             <h3>Navigation</h3>
-            <Link to="about">Education</Link>
-            <Link to="about">Projects</Link>
-            <Link to="about">Skills</Link>
+            <Link to="about" onClick={linkToAbout()}>Education</Link>
+            <Link to="about" onClick={linkToAbout()}>Projects</Link>
+            <Link to="about" onClick={linkToAbout()}>Skills</Link>
         </div>
         <div className="footer-column">
             <h3>Contacts</h3>
