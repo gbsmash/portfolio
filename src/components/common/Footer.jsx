@@ -25,7 +25,7 @@ function Footer() {
         <div className="footer-column">
             <h3>Navigation</h3>
             <Link to="about" onClick={linkToAbout()}>Education</Link>
-            <Link to="about" onClick={linkToAbout()}>Projects</Link>
+            <Link to="portfolio">Projects</Link>
             <Link to="about" onClick={linkToAbout()}>Skills</Link>
         </div>
         <div className="footer-column">
