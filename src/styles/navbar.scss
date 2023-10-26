@@ -96,6 +96,8 @@ nav{
             background-color: transparent;
             border-radius: 12px;
             transition: all 0.7s ease-in-out;
+
+            @include mquery_max(425px){ display: none; }
         }
 
         &:hover::after{

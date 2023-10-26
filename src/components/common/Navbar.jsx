@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SunIcon from "../../assets/icons/SunIcon";
 import { NavLink } from "react-router-dom";
 import MenuIcon from "../../assets/icons/MenuIcon";
@@ -30,6 +30,7 @@ function Navbar() {
     console.log(menuVisible);
   }
 
+
   return (
     <nav>
       <div className="nav--brand">
@@ -39,7 +40,7 @@ function Navbar() {
       <div className={`nav--links ${menuVisible ? "menu" : ""}`}>
         {navbarElements.map(({ name, link, id }) => {
           return (
-            <NavLink to={link} key={id}>
+            <NavLink to={link} key={id} onClick={()=> {setMenuVisible(false)}}>
               {name}
             </NavLink>
           );

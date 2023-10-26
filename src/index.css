@@ -10,7 +10,7 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a{
+a, button{
   text-decoration: none;
   color:inherit;
 }
