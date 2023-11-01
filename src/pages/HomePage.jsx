@@ -23,7 +23,8 @@ function HomePage() {
               return <div className={`home--project-container`} key={project.id}>
                       <img src={project.img}></img>
                       <p>{project.description}</p>
-                      <Link><GithubIcon/>Check Out on Github</Link>
+                      {project.link ? <Link to={project.link}>{project.link}</Link> : <></>}
+                      <Link to={project.github}><GithubIcon/>Check Out on Github</Link>
                     </div>
             })}
           </div>

@@ -20,9 +20,11 @@ function PortfolioPage() {
               {project.tags.map((tag, index)=>{
                 return <span key={index}>{tag}</span>
               })}
+              
             </div>
             <div className="portfolio--project-row-wrapper">
-              <Link to={project.link}><GithubIcon/>Check Out on Github</Link>
+              {project.link ? <Link to={project.link}>{project.link}</Link> : <></>}
+              <Link to={project.github}><GithubIcon/>Check Out on Github</Link>
             </div>
           </div>
         </div>

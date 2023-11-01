@@ -34,13 +34,6 @@
         @include mquery_min(1700px){ gap: 12rem; }
         @include mquery_max(768px){ flex-direction: column; }
 
-        .portfolio--project-row-wrapper{
-            display: flex;
-            justify-content: center;
-            margin-top: auto;
-
-            @include mquery_min(2200px){ margin-top: 3rem; }
-        }
 
         &.last{
             border:none;
@@ -85,7 +78,7 @@
                 @include mquery_max(768px){ font-size:1.5rem; }
             }
     
-            p{
+            p, a{
                 font: 400 2.5rem "REM";
                 font-weight: 300;
                 text-align: center;
@@ -99,7 +92,7 @@
     
             .project-tags-wrapper{
                 display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
                 align-items: center;
                 width: 100%;
                 
@@ -114,32 +107,46 @@
                 }
             }
 
-            a{
-                @include black_button(0.3rem, 1rem);
+            .portfolio--project-row-wrapper{
                 display: flex;
+                flex-direction: column;
+                justify-content: center;
                 align-items: center;
-                margin-top:2rem;
+                margin-top: auto;
+                gap: 1rem;
+    
+                @include mquery_min(2200px){ margin-top: 3rem; }
 
-                @include mquery_max(768px){ font-size:0.8rem; }
-
-                svg{
-                    width: 40px;
-                    margin-right: 1rem;
-
-                    path{
-                        fill:white;
-                        transition : fill 1s ease-in-out;
-                    }
+                a:first-child{
+                    margin-top:2rem;
+                    color:rgb(145, 145, 145);
                 }
 
-                &:hover{
-                    svg > path{
-                        fill: black;
-                        transition : fill 1s ease-in-out;
+                a:last-child{
+                    @include black_button(0.3rem, 1rem);
+                    display: flex;
+                    align-items: center;
+    
+                    @include mquery_max(768px){ font-size:0.8rem; }
+    
+                    svg{
+                        width: 40px;
+                        margin-right: 1rem;
+    
+                        path{
+                            fill:white;
+                            transition : fill 1s ease-in-out;
+                        }
+                    }
+    
+                    &:hover{
+                        svg > path{
+                            fill: black;
+                            transition : fill 1s ease-in-out;
+                        }
                     }
                 }
             }
         }
-
     }
 }
