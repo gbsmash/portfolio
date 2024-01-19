@@ -99,6 +99,7 @@ function AboutPage() {
         <h1>Achievements</h1>
         <div className="achievements-content-wrapper">
           <div className="achievements-info-wrapper">
+          <p><StarIcon/><span>3rd place at Pasha Insurance Hackathon</span></p>
           <p><StarIcon/><span>IELTS Exam Overall Score 7.5</span></p>
           <p><StarIcon/><span>636 points scored at State Examination Center (SEC) University Entrance Exams</span></p>
           <p><StarIcon/><span>Completing Summer School in Strasbourg, France</span></p>
