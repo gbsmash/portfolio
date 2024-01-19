@@ -38,4 +38,11 @@ $gradient_orange: rgba(255,168,137,1);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+
+
+}    
+
+::selection{
+    color: white;
+    background: $black;
 }
